@@ -1,13 +1,12 @@
-import React from "react";
-
-export default function WeeklyForecast(props) {
-  function maxTemp() {
-    let maxTemp = Math.round(props.data.temp.max);
-    return `${maxTemp}°`;
+export default function WeatherForecastDay(props) {
+  function maxTemperature() {
+    let temperature = Math.round(props.data.temp.max);
+    return `${temperature}°`;
   }
-  function minTemp() {
-    let minTemp = Math.round(props.data.temp.min);
-    return `${minTemp}°`;
+
+  function minTemperature() {
+    let temperature = Math.round(props.data.temp.min);
+    return `${temperature}°`;
   }
 
   function day() {
@@ -21,14 +20,15 @@ export default function WeeklyForecast(props) {
 
   return (
     <div>
-      <div className="WeatherForecast">
-        <div className="row">
-          <div className="col">
-            <div className="WeeklyForecast-Day">{day()}</div>
-            <span className="ForecastTempMax">{maxTemp()}</span>{" "}
-            <span className="ForecastTempMin">{minTemp()}</span>
-          </div>
-        </div>
+      <div className="WeatherForecast-day">{day()}</div>
+
+      <div className="WeatherForecast-temperatures">
+        <span className="WeatherForecast-temperature-max">
+          {maxTemperature()}
+        </span>
+        <span className="WeatherForecast-temperature-min">
+          {minTemperature()}
+        </span>
       </div>
     </div>
   );
